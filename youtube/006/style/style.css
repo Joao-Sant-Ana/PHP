@@ -1,0 +1,22 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 50svw;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    gap: 2px;
+}
+
+form > input, form > select {
+    width: 300px;
+}
+
+#btn {
+    width: 150px;
+}
