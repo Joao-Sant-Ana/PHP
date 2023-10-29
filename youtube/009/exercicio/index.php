@@ -68,7 +68,7 @@
                     echo $result;
                     break;
                 case "**":
-                    $result = $num1 ** $num2;
+                    $result = pow($num1, $num2);
                     echo $result;
                     break;
             }

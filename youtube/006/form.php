@@ -25,6 +25,10 @@
                 <option value="bird">Bird</option>
             </select>
             <input type="submit" id="btn">
+            <?php 
+                $uwu = "uwu";
+
+            ?>
         </form>
     </main>
 </body>
