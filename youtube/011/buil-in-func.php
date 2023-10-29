@@ -42,12 +42,26 @@
 
     //Array Built-in function
 
-    $array = ["apple", "orange", "banana"];
+    $array1 = ["apple", "orange", "banana"];
+    $array2 = ["Kiwi", "Mango"];
 
-    echo count($array);//Conta quantos elementos tem dentro do array.
+    echo count($array1);//Conta quantos elementos tem dentro do array.
     echo "<br>";
-    echo is_array($array);//Verifica se é um array, funciona nos outros tipos
-    
+    echo is_array($array1);//Verifica se é um array, funciona nos outros tipos
+    echo "<br>";
+    array_push($array1, "kiwi");//Adciona ao final do array
+    print_r($array1) ;
+    echo "<br>";
+    array_pop($array1);//Remove do final do array
+    print_r($array1);
+    echo "<br>";
+    print_r(array_merge($array1, $array2));//Mescla dois arrays
+    echo "<br>";
+
+    //Date/time Built-in functions
+
+    $date = "2006-07-26 10:00:00";
+    echo strtotime($date);
     ?>
 </body>
 </html>
