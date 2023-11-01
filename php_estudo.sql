@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 01-Nov-2023 às 14:08
+-- Tempo de geração: 01-Nov-2023 às 14:29
 -- Versão do servidor: 8.0.31
 -- versão do PHP: 8.0.26
 
@@ -36,7 +36,14 @@ CREATE TABLE IF NOT EXISTS `comments` (
   `users_id` int NOT NULL,
   PRIMARY KEY (`id`),
   KEY `users_id` (`users_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Extraindo dados da tabela `comments`
+--
+
+INSERT INTO `comments` (`id`, `username`, `comment_text`, `created_at`, `users_id`) VALUES
+(1, 'João Marcos', 'Olá, Mundo!', '2023-11-01 11:29:15', 4);
 
 -- --------------------------------------------------------
 
@@ -47,13 +54,22 @@ CREATE TABLE IF NOT EXISTS `comments` (
 DROP TABLE IF EXISTS `usuarios`;
 CREATE TABLE IF NOT EXISTS `usuarios` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(30) COLLATE utf8mb4_general_ci NOT NULL,
+  `username` varchar(30) COLLATE utf8mb4_general_ci NOT NULL,
   `pwd` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `email` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Extraindo dados da tabela `usuarios`
+--
+
+INSERT INTO `usuarios` (`id`, `username`, `pwd`, `email`, `created_at`) VALUES
+(4, 'João Marcos', '1234', 'joao@marcos.com', '2023-11-01 11:27:30'),
+(2, 'André', '12345', 'andre@felipe.com', '2023-11-01 11:14:41'),
+(3, 'Matheus', '1234', 'matheus@savio.com', '2023-11-01 11:26:37');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
