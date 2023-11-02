@@ -7,6 +7,16 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <form action="includes/formhandler.inc.php" method="POST">
+        <h1>Singup</h1>
+        <input type="text" name="username" placeholder="username">
+        <input type="password" name="password" placeholder="password">
+        <input type="text" name="email" placeholder="email">
+        <input type="submit" value="submit">
+    </form>
+    <form action="includes/deleteuser.inc.php" method="POST">
+        <input type="text" name="email" placeholder="email">
+        <input type="password" name="password" placeholder="password">
+    </form>
 </body>
 </html>
