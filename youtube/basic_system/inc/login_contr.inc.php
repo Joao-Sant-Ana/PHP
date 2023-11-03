@@ -9,16 +9,17 @@
         }
     }
 
-    function verify_username_exist (object $pdo, string $username) {
-        if(get_user_if_exist($pdo, $username)) {
+    function is_username_wrong(bool|array $result, object $pdo, string $username) {
+        $result = get_user($pdo, $username);
+        if (!$result) {
             return true;
         } else {
             return false;
         }
     }
 
-    function verify_account(object $pdo, string $username, string $pwd) {
-        if(get_user_pwd ($pdo, $username, $pwd)) {
+    function is_password_wrong(string $pwd, string $hashedPwd) {
+        if (!password_verify($pwd, $hashedPwd)) {
             return true;
         } else {
             return false;

@@ -16,11 +16,15 @@
             if(is_input_empty($username, $password)) {
                 $errors["empty_input"] = "Fill in all fields";
             }
-            if(verify_username_exist($pdo, $username)) {
-                $errors["Invalid_username"] = "Invalid data1!";
+
+            $result = get_user($pdo, $username);
+
+            if (is_username_wrong($result, $pdo, $username)) {
+                $errors["ERROR_0"] = "Invalid data!";
             }
-            if(verify_account($pdo, $username, $password)) {
-                $errors["Invalid_data"] = "Invalid data2!";
+
+            if (!is_username_wrong($result, $pdo, $username) && is_password_wrong($password, $result["pwd"])) {
+                $errors["ERROR_1"] = "Invalid data!";
             }
 
 
@@ -30,11 +34,20 @@
                 die();
             }
 
-            header("Location: ../index.php?login=succes");
+            $newSessionId = session_create_id();
+            $sessionId = $newSessionId . "_" . $result["id"];
+            session_id($sessionId);
 
+            $_SESSION["user_id"] = $result["id"];
+            $_SESSION["user_username"] = htmlspecialchars($result["username"]);
+
+            $_SESSION['last_regeneration'] = time();
+
+            header("Location: ../index.php?login=succes");
             $pdo = null;
             $stmt = null;
 
+            die();
         } catch (PDOException $e) {
 
             die("Query failed: " . $e->getMessage());
