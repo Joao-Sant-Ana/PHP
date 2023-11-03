@@ -1,6 +1,7 @@
 <?php
     require_once "inc/signup_view.inc.php";
     require_once "inc/config_session.inc.php";
+    require_once "inc/login_view.inc.php";
 ?>
 
 <!DOCTYPE html>
@@ -15,11 +16,14 @@
 <body>
     <div class="wrapper">
         <h1>Login</h1>
-        <form action="" method="POST">
+        <form action="../basic_system/inc/login.inc.php" method="POST">
             <input type="text" name="username" placeholder="name">
             <input type="password" name="password" placeholder="password">
             <input type="submit" value="submit">
         </form>
+        <?php 
+            check_login_errors();
+        ?>
         <h1>Sign up</h1>
         <form action="../basic_system/inc/singup.inc.php" method="POST">
             <input type="text" name="username" placeholder="name">
