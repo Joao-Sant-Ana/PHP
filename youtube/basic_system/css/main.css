@@ -1,0 +1,48 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(207, 207, 207);
+}
+
+.wrapper {
+    max-width: fit-content;
+    min-width: 100svw;
+    height: 100svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+form {
+    max-width: fit-content;
+    min-width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input {
+    width: 300px;
+    height: 30px;
+    border-radius: 8px;
+    border: solid 1px black;
+    transition: .3s;
+}
+
+input:focus, input:hover {
+    background-color: rgb(209, 209, 209);
+    border: none;
+    border: solid 1px black;
+}
+
+input[type="submit"] {
+    cursor: pointer;
+}
