@@ -1,6 +1,6 @@
-<?php 
-    require_once "inc/config_session.inc.php";
+<?php
     require_once "inc/signup_view.inc.php";
+    require_once "inc/config_session.inc.php";
 ?>
 
 <!DOCTYPE html>
@@ -21,15 +21,16 @@
             <input type="submit" value="submit">
         </form>
         <h1>Sign up</h1>
-        <form action="inc/singup.inc.php" method="POST">
+        <form action="../basic_system/inc/singup.inc.php" method="POST">
             <input type="text" name="username" placeholder="name">
             <input type="text" name="email" placeholder="email">
             <input type="password" name="password" placeholder="password">
             <input type="submit" value="submit">           
         </form>
-    </div>
-    <?php
+    <?php 
         check_signup_errors();
     ?>
+    </div>
 </body>
 </html>
+

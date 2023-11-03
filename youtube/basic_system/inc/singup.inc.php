@@ -1,6 +1,6 @@
 <?php 
-//MVC model
-    if($_SERVER['request_method'] == 'POST') {
+
+    if($_SERVER["REQUEST_METHOD"] == "POST") {
         $username = $_POST['username'];
         $email = $_POST['email'];
         $password = $_POST['password'];
@@ -22,19 +22,27 @@
             }
 
             if (is_username_taken($pdo, $username)) {
-                $errors["username_taken"] = "Username already taken!";
+                $errors["username_taken"] = "Invalid data";
             }
 
             if (is_email_registred($pdo, $email)) {
-                $errors["email_used"] = "Email already registred";
+                $errors["email_used"] = "Invalid data";
             }
 
             require_once "config_session.inc.php";
 
             if ($errors) {
-                $_SESSION['error_signup'] = $errors;
+                $_SESSION["error_signup"] = $errors;
                 header("Location: ../index.php");
+                die();
             }
+
+            create_user($pdo, $username, $email, $password);
+
+            header("Location: ../index.php?signup=succes");
+
+            $pdo = null;
+            $stmt = null;
 
         } catch (PDOException $e) {
             die("Query failed: " . $e->getMessage());
