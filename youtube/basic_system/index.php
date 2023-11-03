@@ -15,12 +15,20 @@
 </head>
 <body>
     <div class="wrapper">
+        <?php 
+            output_username()
+        ?>
+        <?php 
+            if(!isset($_SESSION["user_id"])){
+        ?>  
         <h1>Login</h1>
         <form action="../basic_system/inc/login.inc.php" method="POST">
             <input type="text" name="username" placeholder="name">
             <input type="password" name="password" placeholder="password">
             <input type="submit" value="submit">
         </form>
+        <?php } ?>
+
         <?php 
             check_login_errors();
         ?>
@@ -34,6 +42,14 @@
     <?php 
         check_signup_errors();
     ?>
+    <?php 
+        if(isset($_SESSION["user_id"])) { ?> 
+            <h1>Logout</h1>
+            <form action="../basic_system/inc/logout.inc.php" method="POST">
+                <input type="submit" value="Logout">
+            </form>
+        <?php } ?>
+
     </div>
 </body>
 </html>

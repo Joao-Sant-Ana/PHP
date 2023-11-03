@@ -11,7 +11,6 @@
 
             foreach ($errors as $error) {
                 echo "<p>" . $error . "</p>";
-                echo "<br>";
             }
 
             unset($_SESSION["error_signup"]);
